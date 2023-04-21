@@ -13,6 +13,8 @@ import (
 func main() {
 	user := "user"
 	ip_and_port := "ip:port"
+	command := "command"
+
 	// Connect to the server
 	config := &ssh.ClientConfig{
 		User: user,
@@ -44,7 +46,6 @@ func main() {
 	}
 
 	// Run the command
-	command := "command"
 	fmt.Println("Running command...")
 	session.Start(command)
 
