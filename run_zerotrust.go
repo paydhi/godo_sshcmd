@@ -14,12 +14,13 @@ func main() {
 	user := "user"
 	ip_and_port := "ip:port"
 	command := "command"
+	password := "password"
 
 	// Connect to the server
 	config := &ssh.ClientConfig{
 		User: user,
 		Auth: []ssh.AuthMethod{
-			ssh.Password("ansitest"),
+			ssh.Password(password),
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
@@ -51,7 +52,7 @@ func main() {
 
 	// Pass the password to the command
 	fmt.Println("Passing passwd")
-	io.WriteString(stdin, "ansitest\n")
+	io.WriteString(stdin, password+"\n")
 	//fmt.Println("Exiting in 30 seconds...")
 	//time.Sleep(30 * time.Second)
 	fmt.Println("Exiting in:")
